@@ -164,7 +164,7 @@ class SwipeablePageRoute<T> extends CupertinoPageRoute<T> {
   static bool _isPopGestureEnabled<T>(PageRoute<T> route, bool canSwipe) {
     // If there's nothing to go back to, then obviously we don't support
     // the back gesture.
-    if (route.isFirst) return false;
+    if (!route.canPop) return false;
     // If the route wouldn't actually pop if we popped it, then the gesture
     // would be really confusing (or would skip internal routes), so disallow it.
     if (route.willHandlePopInternally) return false;
